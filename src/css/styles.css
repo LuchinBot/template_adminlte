@@ -1,0 +1,74 @@
+/* Root */
+:root{
+    --color-white: #ffffff;
+    --color-light: #fafafa;
+    --color-dark: #222D32;
+    --color-blue: #367FA9;
+    --color-blue-100: #3C8DBC;
+    --color-opac: #a9a9a9;
+    --color-gray: rgba(0, 0, 0, .05);
+    --color-gray-100: rgba(0, 0, 0, .34);
+    --color-gray-200: rgba(0, 0, 0, .65);
+    --color-gray-300: #333333;
+    --color-symbol-menu: #a9a9a9;
+    --color-danger: #dc2626;
+    --color-danger-hover: #ef4444;
+    --color-danger-hover-old: #d6374f;
+    --color-danger-error: #ff8983;
+}
+/* End Root */
+body {
+    background-color: var(--color-light) !important;
+    -webkit-font-smoothing: antialiased;
+    font: 1em / 1 "Lato", sans-serif !important;
+    line-height: 1.5 !important;
+}
+
+.main-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none !important;
+}
+
+.material-symbols-outlined.down{
+    font-size: 14px !important;
+}
+.fixed-lateral.closed {
+    left: -250px !important;
+}
+
+/* Contenido ajustado cuando el menú está cerrado */
+.content.shifted {
+    margin-left: 0 !important; 
+}
+
+/* Estilo opcional para el ícono de 'close' */
+.material-symbols-outlined.menu {
+    cursor: pointer;
+}
+/* Inicialmente, el contenido estará oculto */
+.collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    display: block;
+}
+
+/* Al desplegar, el contenido tendrá una altura mayor */
+.collapse.show {
+    max-height: 1000px; /* o el valor que necesites según el contenido */
+}
+
+/* Animación de la flecha */
+.rotate-icon {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}

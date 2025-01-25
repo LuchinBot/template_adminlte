@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tabs Dinámicos con Páginas</title>
+		<!-- Google Externo -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="src/css/styles.css" />
+		<link rel="stylesheet" href="src/css/aside.css" />
+		<link rel="stylesheet" href="src/css/content.css" />
+	</head>
+	<body>
+		<main class="main-container">
+			<div class="fixed-lateral">
+				<div class="brand d-flex align-items-center justify-content-center">
+					<a href="#" class="brand-title">AdminLTE <span class="text-dark">Studio</span></a>
+				</div>
+				<aside class="aside p-0">
+					<ul class="list-group rounded-0" id="menu-links">
+						<li class="list-group-item">
+							<a href="#" data-tab-url="home.html" data-tab-id="tab_1" data-tab-title="Home" class="father d-flex align-items-center p-3" data-bs-toggle="collapse" aria-expanded="true">
+								<span class="material-symbols-outlined me-3">home</span>
+								<span>Inicio</span>
+							</a>
+						</li>
+						<li class="list-group-item">
+							<a href="#f1" class="father toggle-collapse d-flex align-items-center p-3" data-bs-toggle="collapse" aria-expanded="true">
+								<div class="d-flex align-items-center w-100">
+									<span class="material-symbols-outlined me-3">share</span>
+									<span>Publicaciones</span>
+								</div>
+								<span class="material-symbols-outlined down">keyboard_arrow_left</span>
+							</a>
+							<ul id="f1" class="collapse">
+								<li class="list-group-item">
+									<a href="#" data-tab-url="create.html" data-tab-id="tab_2" data-tab-title="Crear" class="d-flex align-items-center p-3">
+										<span class="material-symbols-outlined me-3">circle</span>
+										<span>Crear</span>
+									</a>
+								</li>
+								<li class="list-group-item">
+									<a href="#" data-tab-url="list.html" data-tab-id="tab_3" data-tab-title="Lista" class="d-flex align-items-center p-3">
+										<span class="material-symbols-outlined me-3">circle</span>
+										<span>Lista</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li class="list-group-item">
+							<a href="#f2" class="father toggle-collapse d-flex align-items-center p-3" data-bs-toggle="collapse" aria-expanded="true">
+								<div class="d-flex align-items-center w-100">
+									<span class="material-symbols-outlined me-3">settings</span>
+									<span>Configuración</span>
+								</div>
+								<span class="material-symbols-outlined down">keyboard_arrow_left</span>
+							</a>
+							<ul id="f2" class="collapse">
+								<li class="list-group-item">
+									<a href="#" data-tab-url="categories.html" data-tab-id="tab_4" data-tab-title="Categorias" class="d-flex align-items-center p-3">
+										<span class="material-symbols-outlined me-3">circle</span>
+										<span>Categorias</span>
+									</a>
+								</li>
+								<li class="list-group-item">
+									<a href="#" data-tab-url="users.html" data-tab-id="tab_5" data-tab-title="Usuarios" class="d-flex align-items-center p-3">
+										<span class="material-symbols-outlined me-3">circle</span>
+										<span>Usuarios</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</aside>
+			</div>
+
+			<div class="content">
+				<div class="top">
+					<div class="d-flex w-100 p-3 align-items-center justify-content-between">
+						<div class="col-md-3">
+							<span class="material-symbols-outlined me-3 menu">menu</span>
+						</div>
+						<div class="col-md-3 d-flex align-items-center justify-content-end">
+							<span class="material-symbols-outlined me-3">account_circle</span>
+							<span>Hola, <b>Pericote</b></span>
+						</div>
+					</div>
+				</div>
+				<div class="wrapper">
+					<div class="tab-container">
+						<div class="tab-navigation">
+							<button class="btn btn-danger rounded-0 h-100" id="prev-tab">
+								<span class="material-symbols-outlined"> keyboard_double_arrow_left </span>
+							</button>
+							<ul class="nav nav-tabs tab-nav" id="dynamic-tabs">
+								<!-- Tabs dinámicos aparecerán aquí -->
+							</ul>
+							<button class="btn btn-danger rounded-0 h-100" id="next-tab">
+								<span class="material-symbols-outlined"> keyboard_double_arrow_right </span>
+							</button>
+						</div>
+
+						<div class="tab-content p-3" id="dynamic-tabs-content">
+							<!-- Contenido dinámico aparecerá aquí -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- Bootstrap JS -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const tabsContainer = document.querySelector('#dynamic-tabs')
+				const tabsContentContainer = document.querySelector('#dynamic-tabs-content')
+				const prevButton = document.getElementById('prev-tab')
+				const nextButton = document.getElementById('next-tab')
+
+				let currentTabIndex = 0
+
+				// Delegar eventos para manejar clics solo en los enlaces hijos
+				document.querySelector('#menu-links').addEventListener('click', async function (e) {
+					const target = e.target
+					console.log(target.a)
+					if (target.tagName === 'A' && target.closest('ul') && target.dataset.tabId) {
+						e.preventDefault()
+						const tabId = target.getAttribute('data-tab-id')
+						const tabTitle = target.getAttribute('data-tab-title')
+						const tabUrl = target.getAttribute('data-tab-url')
+
+						// Verificar si ya existe el tab
+						if (!document.querySelector(`#tab-${tabId}`)) {
+							// Crear el tab
+							const newTab = document.createElement('li')
+							newTab.className = 'nav-item'
+							newTab.innerHTML = `
+                    <button class="nav-link text-dark rounded-0" id="tab-${tabId}" data-bs-toggle="tab" data-bs-target="#content-${tabId}" type="button" role="tab">
+                        ${tabTitle}
+                        <span class="close-tab text-danger">&times;</span>
+                    </button>
+                `
+							tabsContainer.appendChild(newTab)
+
+							// Crear el contenido del tab
+							const newTabContent = document.createElement('div')
+							newTabContent.className = 'tab-pane fade'
+							newTabContent.id = `content-${tabId}`
+							newTabContent.role = 'tabpanel'
+							tabsContentContainer.appendChild(newTabContent)
+
+							// Cargar contenido desde la URL
+							try {
+								const response = await fetch(tabUrl)
+								if (!response.ok) throw new Error('Error al cargar el contenido.')
+								const content = await response.text()
+								newTabContent.innerHTML = content
+							} catch (error) {
+								newTabContent.innerHTML = `<p class="text-danger">No se pudo cargar la página: ${error.message}</p>`
+							}
+						}
+
+						activateTabById(tabId)
+					}
+				})
+
+				// Manejar cierre de pestañas
+				tabsContainer.addEventListener('click', function (e) {
+					if (e.target.classList.contains('close-tab')) {
+						const tabButton = e.target.parentElement
+						const tabId = tabButton.id.replace('tab-', '')
+						const contentId = `content-${tabId}`
+
+						tabButton.parentElement.remove()
+						document.querySelector(`#${contentId}`).remove()
+
+						const firstTab = tabsContainer.querySelector('.nav-link')
+						if (firstTab) firstTab.click()
+					}
+				})
+
+				// Activar pestaña por índice
+				const activateTabByIndex = (index) => {
+					const tabs = tabsContainer.querySelectorAll('.nav-link')
+					if (index < 0 || index >= tabs.length) return
+
+					currentTabIndex = index
+					tabs[currentTabIndex].click()
+				}
+
+				// Activar pestaña por ID
+				const activateTabById = (id) => {
+					const tab = document.querySelector(`#tab-${id}`)
+					if (tab) {
+						tab.click()
+						currentTabIndex = Array.from(tabsContainer.children).indexOf(tab.parentElement)
+					}
+				}
+
+				// Manejar clics en navegación
+				prevButton.addEventListener('click', () => activateTabByIndex(currentTabIndex - 1))
+				nextButton.addEventListener('click', () => activateTabByIndex(currentTabIndex + 1))
+
+				// Inicializar primera pestaña si es necesario
+				if (tabsContainer.querySelector('.nav-link')) {
+					activateTabByIndex(0)
+				}
+			})
+
+			document.querySelectorAll('.toggle-collapse').forEach(function (element) {
+				element.addEventListener('click', function () {
+					const icon = this.querySelector('.down')
+
+					if (icon.innerHTML === 'keyboard_arrow_left') {
+						icon.innerHTML = 'keyboard_arrow_down'
+					} else {
+						icon.innerHTML = 'keyboard_arrow_left'
+					}
+				})
+			})
+
+			document.addEventListener('DOMContentLoaded', function () {
+				const menuIcon = document.querySelector('.menu') // Ícono de menú
+				const fixedLateral = document.querySelector('.fixed-lateral') // Menú lateral
+				const content = document.querySelector('.content') // Contenido principal
+
+				// Verifica si los elementos existen antes de agregarles eventos
+				if (menuIcon && fixedLateral && content) {
+					menuIcon.addEventListener('click', function () {
+						// Alternar entre abrir y cerrar el menú lateral
+						if (fixedLateral.classList.contains('closed')) {
+							fixedLateral.classList.remove('closed') // Mostrar el menú lateral
+							content.classList.remove('shifted') // Ajustar el contenido
+						} else {
+							fixedLateral.classList.add('closed') // Ocultar el menú lateral
+							content.classList.add('shifted') // Ajustar el contenido
+						}
+					})
+				} else {
+					console.error('No se encontraron los elementos en el DOM.')
+				}
+			})
+
+			document.addEventListener('DOMContentLoaded', function () {
+				// Seleccionar todos los elementos 'father' que tienen la clase 'toggle-collapse'
+				const fathers = document.querySelectorAll('.father.toggle-collapse')
+
+				// Iterar sobre cada elemento 'father'
+				fathers.forEach((father) => {
+					father.addEventListener('click', function (e) {
+						e.preventDefault() // Prevenir el comportamiento por defecto del enlace
+
+						// Remover la clase 'active' de todos los elementos 'father' y cerrar sus colapsables
+						fathers.forEach((item) => {
+							if (item !== this) {
+								// Asegurarse de no modificar el padre clickeado
+								item.classList.remove('active-father')
+								const collapseElement = item.nextElementSibling
+								if (collapseElement && collapseElement.classList.contains('collapse')) {
+									collapseElement.classList.remove('show')
+									item.querySelector('.down').textContent = 'keyboard_arrow_left' // Restablecer el ícono
+								}
+							}
+						})
+
+						// Añadir la clase 'active' al padre clickeado
+						this.classList.toggle('active-father')
+
+						// Gestionar el ícono (expandir/contraer)
+						const downIcon = this.querySelector('.down')
+						const collapseElement = this.nextElementSibling
+
+						// Verificar si el collapse está ya abierto o cerrado
+						if (collapseElement && collapseElement.classList.contains('collapse')) {
+							if (collapseElement.classList.contains('show')) {
+								// Si el collapse está abierto, cerrarlo
+								collapseElement.classList.remove('show')
+								downIcon.textContent = 'keyboard_arrow_left' // Cambiar ícono
+							} else {
+								// Si el collapse está cerrado, abrirlo
+								collapseElement.classList.add('show')
+								downIcon.textContent = 'keyboard_arrow_down' // Cambiar ícono
+							}
+						}
+					})
+				})
+			})
+		</script>
+	</body>
+</html>

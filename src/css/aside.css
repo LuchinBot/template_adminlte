@@ -1,0 +1,62 @@
+/* fixed-lateral */
+.main-container .fixed-lateral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: var(--color-dark);
+    z-index: 1000;
+    transition: left 0.5s ease;
+    overflow: hidden;
+}
+
+
+.fixed-lateral .brand {
+    height: 60px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: var(--color-blue);
+}
+
+.fixed-lateral .brand .brand-title {
+    margin: 0;
+    font-size: 16px;
+    color: var(--color-light);
+}
+
+/* aside Styling */
+.aside .list-group {
+    width: 100% !important;
+}
+.aside .list-group-item {
+    padding: 0 !important;
+    border: none !important;
+    background-color: transparent !important;
+}
+
+.aside .list-group .list-group-item a {
+    font-size: 14px;
+    color: var(--color-opac);
+    padding: 15px !important;
+    border-left: 3px solid transparent;
+
+}
+.aside .list-group .list-group-item a:hover {
+    background-color: var(--color-gray);
+    color: var(--color-light);
+
+}
+.aside .list-group .list-group-item .father:hover {
+    border-left: 3px solid var(--color-blue);
+}
+
+.aside .list-group .material-symbols-outlined {
+    font-size: 24px; /* Ajusta el tamaño de los íconos para que sean consistentes */
+}
+
+.active-father{
+    color: var(--color-light) !important;
+    border-left: 3px solid var(--color-blue) !important;
+}
