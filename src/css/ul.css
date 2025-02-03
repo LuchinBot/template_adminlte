@@ -1,0 +1,142 @@
+/* Estilos generales para el menú lateral */
+.sidebar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #222d32; /* Color de fondo del menú */
+}
+
+.sidebar-menu > li {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-menu > li >a:hover {
+    border-left-color: #3c8dbc !important;
+}
+.sidebar-menu > li > a {
+    padding: 12px 15px;
+    display: block;
+    color: #b8c7ce; /* Color del texto */
+    text-decoration: none;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-menu > li > a:hover {
+    background-color: #1e282c; /* Color de fondo al pasar el mouse */
+    color: #fff;
+}
+
+.sidebar-menu > li > a > .fa,
+.sidebar-menu > li > a > .material-symbols-outlined {
+    width: 20px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+/* Estilos para los submenús */
+.treeview-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #2c3b41; /* Color de fondo del submenú */
+}
+
+.treeview-menu > li > a {
+    padding: 10px 15px 10px 35px;
+    display: block;
+    color: #8aa4af; /* Color del texto del submenú */
+    text-decoration: none;
+}
+
+.treeview-menu > li > a:hover {
+    background-color: #1e282c; /* Color de fondo al pasar el mouse */
+    color: #fff;
+}
+
+.treeview-menu > li > a > .fa,
+.treeview-menu > li > a > .material-symbols-outlined {
+    width: 20px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+/* Estilos para los íconos de flecha */
+.pull-right-container {
+    float: right;
+    margin-left: 10px;
+}
+
+.pull-right-container .fa-angle-left {
+    transition: transform 0.3s ease;
+}
+
+/* Estilos para el menú colapsado */
+.treeview-menu.collapse {
+    display: none;
+}
+
+.treeview-menu.collapse.show {
+    display: block;
+}
+
+/* Estilos para el menú activo */
+.sidebar-menu > li.active > a {
+    border-left-color: #3c8dbc; /* Color del borde izquierdo para el menú activo */
+    background-color: #1e282c; /* Color de fondo para el menú activo */
+    color: #fff;
+}
+
+.treeview-menu > li > a {
+    color: #fff;
+}
+
+/* Estilos para el menú desplegable */
+.treeview > a {
+    position: relative;
+}
+
+.treeview > a > .pull-right-container {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.treeview > a > .pull-right-container .fa-angle-left {
+    transform: rotate(0deg);
+}
+
+.treeview.menu-open > a > .pull-right-container .fa-angle-left {
+    transform: rotate(0deg);
+}
+
+/* Estilos para el menú lateral cerrado */
+.fixed-lateral.closed .sidebar-menu > li > a {
+    padding: 12px 15px 12px 15px;
+    text-align: center;
+}
+
+.fixed-lateral.closed .sidebar-menu > li > a > .fa,
+.fixed-lateral.closed .sidebar-menu > li > a > .material-symbols-outlined {
+    margin-right: 0;
+}
+
+.fixed-lateral.closed .sidebar-menu > li > a > .pull-right-container {
+    display: none;
+}
+
+.fixed-lateral.closed .treeview-menu {
+    display: none !important;
+}
+
+/* Estilos para el contenido principal */
+.content {
+    margin-left: 230px; /* Ajusta este valor según el ancho del menú lateral */
+    transition: margin-left 0.3s ease;
+}
+
+.content.shifted {
+    margin-left: 50px; /* Ajusta este valor cuando el menú lateral está cerrado */
+}
