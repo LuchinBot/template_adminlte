@@ -1,4 +1,4 @@
-# Plantilla AdminLTE con HTML, CSS/Bootstrap 5 y JS Nativo  
+# Plantilla AdminLTE con Tabs
 
 Esta es una plantilla basada en **AdminLTE**, desarrollada con **HTML, CSS (Bootstrap 5)** y **JavaScript Nativo**, sin dependencias adicionales.  
 
