@@ -3,7 +3,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    background-color: #222d32; /* Color de fondo del menú */
+    background-color: #222d32;
 }
 
 .sidebar-menu > li {
@@ -18,13 +18,13 @@
 .sidebar-menu > li > a {
     padding: 12px 15px;
     display: block;
-    color: #b8c7ce; /* Color del texto */
+    color: #b8c7ce; 
     text-decoration: none;
     border-left: 3px solid transparent;
 }
 
 .sidebar-menu > li > a:hover {
-    background-color: #1e282c; /* Color de fondo al pasar el mouse */
+    background-color: #1e282c;
     color: #fff;
 }
 
@@ -40,18 +40,18 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    background-color: #2c3b41; /* Color de fondo del submenú */
+    background-color: #2c3b41;
 }
 
 .treeview-menu > li > a {
     padding: 10px 15px 10px 35px;
     display: block;
-    color: #8aa4af; /* Color del texto del submenú */
+    color: #8aa4af; 
     text-decoration: none;
 }
 
 .treeview-menu > li > a:hover {
-    background-color: #1e282c; /* Color de fondo al pasar el mouse */
+    background-color: #1e282c;
     color: #fff;
 }
 
@@ -83,8 +83,8 @@
 
 /* Estilos para el menú activo */
 .sidebar-menu > li.active > a {
-    border-left-color: #3c8dbc; /* Color del borde izquierdo para el menú activo */
-    background-color: #1e282c; /* Color de fondo para el menú activo */
+    border-left-color: #3c8dbc;
+    background-color: #1e282c;
     color: #fff;
 }
 
@@ -133,11 +133,11 @@
 
 /* Estilos para el contenido principal */
 .content {
-    margin-left: 230px; /* Ajusta este valor según el ancho del menú lateral */
+    margin-left: 230px;
     transition: margin-left 0.3s ease;
 }
 
 .content.shifted {
-    margin-left: 50px; /* Ajusta este valor cuando el menú lateral está cerrado */
+    margin-left: 50px;
 }
 

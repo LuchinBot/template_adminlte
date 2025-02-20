@@ -46,16 +46,13 @@ a{
     left: -250px !important;
 }
 
-/* Contenido ajustado cuando el menú está cerrado */
 .content.shifted {
     margin-left: 0 !important; 
 }
 
-/* Estilo opcional para el ícono de 'close' */
 .material-symbols-outlined.menu {
     cursor: pointer;
 }
-/* Inicialmente, el contenido estará oculto */
 .collapse {
     max-height: 0;
     overflow: hidden;
@@ -63,12 +60,12 @@ a{
     display: block;
 }
 
-/* Al desplegar, el contenido tendrá una altura mayor */
+
 .collapse.show {
-    max-height: 1000px; /* o el valor que necesites según el contenido */
+    max-height: 1000px; 
 }
 
-/* Animación de la flecha */
+
 .rotate-icon {
     transform: rotate(180deg);
     transition: transform 0.3s ease;

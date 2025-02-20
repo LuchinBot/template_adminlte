@@ -36,33 +36,31 @@
     flex-direction: column;
     overflow-y: auto;
 }
-/* Estilo moderno para la barra de desplazamiento */
 .aside::-webkit-scrollbar {
-    width: 6px; /* Ancho más pequeño */
+    width: 6px;
 }
 
 .aside::-webkit-scrollbar-track {
-    background: #2c3e50; /* Color de fondo de la pista */
-    border-radius: 10px; /* Bordes redondeados para la pista */
+    background: #2c3e50;
+    border-radius: 10px; 
 }
 
 .aside::-webkit-scrollbar-thumb {
-    background: #34495e; /* Color del thumb (barra deslizante) */
-    border-radius: 10px; /* Bordes redondeados para el thumb */
+    background: #34495e; 
+    border-radius: 10px;
 }
 
 .aside::-webkit-scrollbar-thumb:hover {
-    background: #1abc9c; /* Color del thumb al pasar el mouse */
+    background: #1abc9c;
 }
 
-/* Estilos para navegadores compatibles con scrollbar-width y scrollbar-color */
 .aside {
-    scrollbar-width: thin; /* Ancho más pequeño */
-    scrollbar-color: #34495e #2c3e50; /* Color del thumb y la pista */
-    scrollbar-track-color: #2c3e50; /* Color de fondo de la pista */
-    scrollbar-thumb-color: #34495e; /* Color del thumb */
-    scrollbar-thumb-radius: 10px; /* Bordes redondeados para el thumb */
-    scrollbar-track-radius: 10px; /* Bordes redondeados para la pista */
+    scrollbar-width: thin;
+    scrollbar-color: #34495e #2c3e50;
+    scrollbar-track-color: #2c3e50;
+    scrollbar-thumb-color: #34495e;
+    scrollbar-thumb-radius: 10px;
+    scrollbar-track-radius: 10px;
 }
 .aside .user-panel {
     padding: 10px;
