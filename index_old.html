@@ -29,12 +29,15 @@
 				<aside class="aside p-0">
 					<div class="user-panel">
 						<div class="pull-left image">
-							<img src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg" alt="User Image" class="img-circle" />
+							<img src="https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg"
+								alt="User Image"
+								class="img-circle"
+							/>
 						</div>
-						<a href="" class="pull-left info">
+						<div class="pull-left info">
 							<p>Alexander Pierce</p>
-							<small><i class="fa fa-circle" style="color: rgb(60, 118, 61)"></i> Online</sma>
-						</a>
+							<a href="#"><i class="fa fa-circle" style="color: rgb(60, 118, 61)"></i> Online</a>
+						</div>
 					</div>
 					<form action="#" method="get" class="sidebar-form">
 						<div class="input-group">
@@ -178,10 +181,9 @@
 				</div>
 			</div>
 		</main>
-
-		<!-- Bootstrap JS -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 		<script>
+			// Código js
 			document.addEventListener('DOMContentLoaded', function () {
 				const tabsContainer = document.querySelector('#dynamic-tabs')
 				const tabsContentContainer = document.querySelector('#dynamic-tabs-content')
@@ -190,12 +192,14 @@
 				const menuIcon = document.querySelector('.menu')
 				const fixedLateral = document.querySelector('.fixed-lateral')
 				const content = document.querySelector('.content')
+				const li = document.querySelectorAll('.treeview')
 
 				let currentTabIndex = 0
 
 				// Delegación de eventos para manejar clics en el menú
 				document.querySelector('#menu-links').addEventListener('click', async function (e) {
 					const target = e.target.closest('a[data-tab-id]')
+					console.log(target)
 					if (target) {
 						e.preventDefault()
 						const tabId = target.dataset.tabId
@@ -266,21 +270,8 @@
 				}
 
 				// Navegación entre pestañas
-				prevButton.addEventListener('click', () => {
-					// Desplazar el contenedor de tabs a la izquierda
-					tabsContainer.scrollBy({
-						left: -200, // Ajusta este valor según sea necesario
-						behavior: 'smooth'
-					})
-				})
-
-				nextButton.addEventListener('click', () => {
-					// Desplazar el contenedor de tabs a la derecha
-					tabsContainer.scrollBy({
-						left: 200, // Ajusta este valor según sea necesario
-						behavior: 'smooth'
-					})
-				})
+				prevButton.addEventListener('click', () => activateTabByIndex(currentTabIndex - 1))
+				nextButton.addEventListener('click', () => activateTabByIndex(currentTabIndex + 1))
 
 				// Inicializar primera pestaña si es necesario
 				if (tabsContainer.querySelector('.nav-link')) {
@@ -296,16 +287,25 @@
 				}
 
 				// Manejo de colapsables
-				document.querySelectorAll('.father.toggle-collapse').forEach((father) => {
-					father.addEventListener('click', function (e) {
+				document.querySelectorAll('.treeview > a').forEach((link) => {
+					link.addEventListener('click', function (e) {
 						e.preventDefault()
-						const downIcon = this.querySelector('.down')
-						const collapseElement = this.nextElementSibling
+						const parentLi = this.closest('li')
+						const submenu = parentLi.querySelector('.treeview-menu')
+						const icon = this.querySelector('.fa-angle-left')
 
-						if (collapseElement && collapseElement.classList.contains('collapse')) {
-							collapseElement.classList.toggle('show')
-							downIcon.textContent = collapseElement.classList.contains('show') ? 'keyboard_arrow_down' : 'keyboard_arrow_left'
+						if (submenu) {
+							submenu.classList.toggle('show')
+							icon.style.transform = submenu.classList.contains('show') ? 'rotate(-90deg)' : 'rotate(0deg)'
 						}
+					})
+				})
+
+				// Manejo de elementos activos en el menú
+				document.querySelectorAll('.sidebar-menu li').forEach((link) => {
+					link.addEventListener('click', function () {
+						document.querySelectorAll('.sidebar-menu li').forEach((el) => el.classList.remove('active'))
+						this.classList.add('active')
 					})
 				})
 			})

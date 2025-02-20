@@ -73,3 +73,53 @@ a{
     transform: rotate(180deg);
     transition: transform 0.3s ease;
 }
+
+.tab-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+.tab-nav .nav-item {
+    flex: 0 0 auto;
+}
+
+.tab-nav .nav-link {
+    padding: 10px 20px;
+    color: #495057;
+    border: 1px solid transparent;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    background-color: white;
+    cursor: pointer;
+}
+
+.tab-nav .nav-link.active {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    border-bottom-color: transparent;
+    color: #007bff;
+}
+
+.tab-nav .nav-link .close-tab {
+    margin-left: 10px;
+    color: #dc3545;
+    cursor: pointer;
+}
+
+.tab-content {
+    padding: 20px;
+    background-color: white;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}

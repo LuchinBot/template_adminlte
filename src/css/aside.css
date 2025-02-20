@@ -2,15 +2,15 @@
 .main-container .fixed-lateral {
     position: fixed;
     top: 0;
+    bottom: 0;
     left: 0;
     width: 250px;
-    height: 100%;
+    height: 100vh;
     background-color: var(--color-dark);
     z-index: 1000;
     transition: left 0.5s ease;
     overflow: hidden;
 }
-
 
 .fixed-lateral .brand {
     height: 60px;
@@ -18,6 +18,9 @@
     font-size: 1.5rem;
     font-weight: bold;
     background-color: var(--color-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .fixed-lateral .brand .brand-title {
@@ -27,38 +30,80 @@
 }
 
 /* aside Styling */
-.aside .list-group {
-    width: 100% !important;
+.aside {
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
 }
-.aside .list-group-item {
-    padding: 0 !important;
-    border: none !important;
-    background-color: transparent !important;
+/* Estilo moderno para la barra de desplazamiento */
+.aside::-webkit-scrollbar {
+    width: 6px; /* Ancho más pequeño */
 }
 
-.aside .list-group .list-group-item a {
-    font-size: 14px;
+.aside::-webkit-scrollbar-track {
+    background: #2c3e50; /* Color de fondo de la pista */
+    border-radius: 10px; /* Bordes redondeados para la pista */
+}
+
+.aside::-webkit-scrollbar-thumb {
+    background: #34495e; /* Color del thumb (barra deslizante) */
+    border-radius: 10px; /* Bordes redondeados para el thumb */
+}
+
+.aside::-webkit-scrollbar-thumb:hover {
+    background: #1abc9c; /* Color del thumb al pasar el mouse */
+}
+
+/* Estilos para navegadores compatibles con scrollbar-width y scrollbar-color */
+.aside {
+    scrollbar-width: thin; /* Ancho más pequeño */
+    scrollbar-color: #34495e #2c3e50; /* Color del thumb y la pista */
+    scrollbar-track-color: #2c3e50; /* Color de fondo de la pista */
+    scrollbar-thumb-color: #34495e; /* Color del thumb */
+    scrollbar-thumb-radius: 10px; /* Bordes redondeados para el thumb */
+    scrollbar-track-radius: 10px; /* Bordes redondeados para la pista */
+}
+.aside .user-panel {
+    padding: 10px;
+    border-bottom: 1px solid #374850;
+}
+
+.aside .sidebar-form {
+    margin: 10px;
+    border-radius: 3px;
+    border: 1px solid #374850;
+    overflow: hidden;
+}
+
+.aside .sidebar-menu {
+    flex: 1; 
+    overflow-y: auto;
+    padding-bottom: 10px;
+}
+
+.aside .sidebar-menu li.header {
+    padding: 10px 25px 10px 15px;
+    font-size: 12px;
+    color: #4b646f;
+    background: #1a2226;
+}
+
+.aside .sidebar-menu li a {
+    display: block;
+    padding: 10px 15px;
     color: var(--color-opac);
-    padding: 15px !important;
-    border-left: 3px solid transparent;
-
+    text-decoration: none;
 }
-.aside .list-group .list-group-item a:hover {
+
+.aside .sidebar-menu li a:hover {
     background-color: var(--color-gray);
     color: var(--color-light);
-
 }
-.aside .list-group .list-group-item .father:hover {
+
+.aside .sidebar-menu li.active > a {
+    color: var(--color-light);
     border-left: 3px solid var(--color-blue);
-}
-
-.aside .list-group .material-symbols-outlined {
-    font-size: 24px; /* Ajusta el tamaño de los íconos para que sean consistentes */
-}
-
-.active-father{
-    color: var(--color-light) !important;
-    border-left: 3px solid var(--color-blue) !important;
 }
 
 /*Perfil y search*/
